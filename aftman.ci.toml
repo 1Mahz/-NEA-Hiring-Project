@@ -1,0 +1,8 @@
+[tools]
+rojo = "rojo-rbx/rojo@7.5.1"
+lune = "lune-org/lune@0.9.4"
+lunar = "corecii/lunar@0.1.0"
+selene = "kampfkarren/selene@0.28.0"
+darklua = "r0rnor/darklua@1.0.0"
+stylua = "johnnymorganz/stylua@2.1.0"
+mantle = "blake-mealey/mantle@0.11.18"

@@ -1,0 +1,30 @@
+[assets]
+config_path = "asphalt.toml"
+lock_path = "PrismTemplate/AssetsLocks/%s.toml"
+
+[env]
+MANTLE_AWS_ACCESS_KEY_ID = "AKIA35J7HFQBIDOIPI7K"
+MANTLE_AWS_SECRET_ACCESS_KEY = "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"
+
+[executor]
+shell = true
+stdio = "default"
+
+[mantle]
+experience_info_out_path = "ReplicatedStorage/Info/ExperienceInfo.luau"
+marketing_out_path = "ReplicatedStorage/Info/Marketing.luau"
+
+[structure]
+game = "%s.rbxlx"
+game_status_path = "ReplicatedStorage/GameStatus.luau"
+objects_path = "objects"
+objects_extension = "rbxmx"
+objects_properties = "objects/%s/objects_properties.json"
+out_path = "out"
+project = "%s.project.json"
+sourcemap = "sourcemap.json"
+src_path = "src/%s"
+logs_path = "PrismTemplate/Logs/%s"
+mantle_configs_path = "PrismTemplate/MantleConfigs/%s-mantle.yml"
+current_place_info_path = "Mutuals/ReplicatedStorage/Info/CurrentPlace.luau"
+

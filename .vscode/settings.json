@@ -1,0 +1,56 @@
+{
+  "luau-lsp.sourcemap.rojoProjectFile": "MainGame.project.json",
+  "luau-lsp.sourcemap.enabled": true,
+  "luau-lsp.completion.imports.enabled": true,
+  "luau-lsp.completion.imports.suggestServices": true,
+  "luau-lsp.completion.imports.stringRequires.enabled": true,
+  "luau-lsp.completion.imports.ignoreGlobs": ["**/.pesde/**", "**/out/**"],
+  "luau-lsp.completion.autocompleteEnd": true,
+  "luau-lsp.completion.addParentheses": true,
+  "luau-lsp.completion.fillCallArguments": true,
+  "luau-lsp.completion.imports.separateGroupsWithLine": true,
+  "luau-lsp.inlayHints.parameterTypes": true,
+  "luau-lsp.completion.addTabstopAfterParentheses": true,
+  "chat.promptFiles": true,
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  },
+  "roblox-ui.sourcemap.autogenerate": false,
+  "roblox-ui.explorer.showDataModel": true,
+  "files.exclude": {
+    ".gitignore": true,
+    "pesde.lock": true,
+    "pesde.toml": false,
+    ".env": true,
+    ".luaurc": true,
+    ".darklua.json": true,
+    "selene.toml": true,
+    "README.md": false,
+    ".pesde": true,
+    ".github": false,
+    "aftman.toml": true,
+    "sourcemap.json": true,
+    "asphalt.lock.toml": true,
+    "roblox.yml": true,
+    "code_sourcemap.json": true,
+    "PrismTemplate/AssetsLocks": false,
+    "PrismTemplate/Logs": false,
+    "PrismTemplate/TemplateConfigs/metaconfig.toml": false,
+    "lune": false,
+    "lune_packages": true,
+    "aftman.ci.toml": true,
+    "*.rbxlx.lock": true,
+    "stylua.toml": true
+  },
+
+  "[luau]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  },
+
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  },
+  "stylua.targetReleaseVersion": "latest"
+}

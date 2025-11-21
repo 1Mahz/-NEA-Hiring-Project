@@ -1,0 +1,40 @@
+name: 'Setup Tooling'
+description: 'Setup tooling'
+inputs:
+  my-pat:
+    description: 'Personal Access Token for private repos'
+    required: true
+    type: string
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+    - uses: dtolnay/rust-toolchain@stable 
+    - uses: Swatinem/rust-cache@v2
+
+    - name: Setup credentials to access private repositories
+      run: git config --global url.https://${{ inputs.my-pat }}@github.com/.insteadOf https://github.com/
+      shell: pwsh
+
+    - name: Install Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        profile: minimal
+        override: true
+
+    - name: Fast install Asphalt
+      uses: baptiste0928/cargo-install@v3
+      with:
+        crate: asphalt
+        version: "1.1.0"
+        locked: true
+
+    - name: Prepare Aftman config (without Asphalt)
+      run: cp aftman.ci.toml aftman.toml
+      shell: pwsh
+
+    - name: Install Aftman
+      uses: ok-nick/setup-aftman@v0.4.2
+      with:
+        token: ${{ github.token }}

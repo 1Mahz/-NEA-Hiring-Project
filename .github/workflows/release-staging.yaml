@@ -1,0 +1,95 @@
+name: Release Staging
+
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+
+concurrency:
+  group: development_environment
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      LUNAR_TR_DIR: ${{ github.workspace }}/.lunar-tr
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - uses: ./.github/actions/setup-tooling
+        with:
+          my-pat: ${{ secrets.MY_PAT }}
+
+      - name: Compile packages
+        run: lunar -y install-packages --no-install
+
+      - name: Compile rojo projects
+        run: lunar -y compile-project --place ALL-PLACES
+
+      - name: Compile code
+        run: lunar -y compile --one-time
+
+      - name: Game deploy to sync products/passes
+        run: lunar -y create --tag dev
+        env:
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+          ASPHALT_API_KEY: ${{ secrets.DEV_API_KEY }}
+          MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.DEV_API_KEY }}
+          MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
+          MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}
+
+      - name: Build game with synced products/passes
+        run: lunar -y load --place ALL-PLACES
+
+      ## <<!TEMPLATE!>> -- ADD/REMOVE PLACE FILES HERE
+
+      - name: Upload Lobby place file
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
+        with:
+          name: Lobby
+          path: Lobby.rbxlx
+          if-no-files-found: error
+
+      - name: Upload MainGame place file
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
+        with:
+          name: MainGame
+          path: MainGame.rbxlx
+          if-no-files-found: error
+
+  deploy:
+    runs-on: ubuntu-latest
+    environment: development
+    needs: build
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - uses: ./.github/actions/setup-tooling
+        with:
+          my-pat: ${{ secrets.MY_PAT }}
+
+        ## <<!TEMPLATE!>> -- ADD/REMOVE PLACE FILES HERE
+
+      - name: Download Lobby artifact
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
+        with:
+          name: Lobby
+
+      - name: Download MainGame artifact
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
+        with:
+          name: MainGame
+
+      - name: Deploy game with synced products/passes
+        run: lunar -y deploy --tag dev
+        env:
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+          ASPHALT_API_KEY: ${{ secrets.DEV_API_KEY }}
+          MANTLE_OPEN_CLOUD_API_KEY: ${{ secrets.DEV_API_KEY }}
+          MANTLE_AWS_ACCESS_KEY_ID: ${{ secrets.MANTLE_AWS_ACCESS_KEY_ID }}
+          MANTLE_AWS_SECRET_ACCESS_KEY: ${{ secrets.MANTLE_AWS_SECRET_ACCESS_KEY }}

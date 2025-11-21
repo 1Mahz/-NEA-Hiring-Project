@@ -1,0 +1,22 @@
+# Project place file
+/*.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+/out/**/*
+!/out/.placeholder
+
+/PrismTemplate/Logs/**/*
+!/PrismTemplate/Logs/.placeholder
+
+/PrismTemplate/AssetsLocks/**/*
+!/PrismTemplate/AssetsLocks/.placeholder
+
+/PrismTemplate/MantleConfigs/feature-mantle.yml
+/PrismTemplate/Variables/current-tag.toml
+/marketing-mantle.yml
+/.env
+/asphalt.lock.toml
+/sourcemap.json
