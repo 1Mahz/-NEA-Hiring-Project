@@ -3,8 +3,8 @@ config_path = "asphalt.toml"
 lock_path = "PrismTemplate/AssetsLocks/%s.toml"
 
 [env]
-MANTLE_AWS_ACCESS_KEY_ID = "AKIA35J7HFQBIDOIPI7K"
-MANTLE_AWS_SECRET_ACCESS_KEY = "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"
+MANTLE_AWS_ACCESS_KEY_ID = ""
+MANTLE_AWS_SECRET_ACCESS_KEY = ""
 
 [executor]
 shell = true
