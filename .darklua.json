@@ -8,14 +8,14 @@
         "name": "path",
         "sources": {
           "@Packages": "roblox_packages",
-          "@Controllers": "src/MainGame/StarterPlayerScripts/Controllers",
-          "@Services": "src/MainGame/ServerScriptService/Services",
-          "@ClientComponents": "src/MainGame/StarterPlayerScripts/Components",
-          "@ServerComponents": "src/MainGame/ServerScriptService/Components",
-          "@CustomModules": "src/Mutuals/ReplicatedStorage/CustomModules",
-          "@Modules": "src/Mutuals/ReplicatedStorage/Modules",
-          "@Info": "src/Mutuals/ReplicatedStorage/Info",
-          "@Assets": "src/Mutuals/ReplicatedStorage/assets"
+          "@Controllers": "src/StarterPlayerScripts/Controllers",
+          "@Services": "src/ServerScriptService/Services",
+          "@ClientComponents": "src/StarterPlayerScripts/Components",
+          "@ServerComponents": "src/ServerScriptService/Components",
+          "@CustomModules": "src/ReplicatedStorage/CustomModules",
+          "@Modules": "src/ReplicatedStorage/Modules",
+          "@Info": "src/ReplicatedStorage/Info",
+          "@Assets": "src/ReplicatedStorage/assets"
         }
       },
       "rule": "convert_require",
