@@ -29,14 +29,14 @@ There is 2 ways:
 
 1. Run `lunar compile`. This will start rojo server + start compiling code live
 2. Open `.rbxlx` place file you're working on
-3. Connect to rojo server using rojo plugin in roblox
+3. Connect to rojo server using rojo plugin in 
 OR
-1. Run `lunar go`. Opens roblox studio, starts rojo server, starts compiling code live
-2. Connect to rojo server using rojo plugin in roblox
-!!! TAKE ATTENTION. In 2nd scenario stopping VScode's terminal task will CLOSE roblox studio WITHOUT SAVING. Save before closing VScode/stopping task in terminal
+1. Run `lunar go`. Opens studio, starts rojo server, starts compiling code live
+2. Connect to rojo server using rojo plugin in 
+!!! TAKE ATTENTION. In 2nd scenario stopping VScode's terminal task will CLOSE  studio WITHOUT SAVING. Save before closing VScode/stopping task in terminal
 
 ... and then just code
 
 ## How to enable auto-publishing usind GitHub actions (on staging push)
-1. Add every secret to GitHub that is required (this is kind of hard, contact @r0rnor in discord to sort out this)
+1. Add every secret to GitHub that is required (this is kind of hard, contact @1mahz in discord to sort out this)
 
